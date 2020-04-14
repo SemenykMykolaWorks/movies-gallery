@@ -1,0 +1,119 @@
+<section class="gallery">
+  <div class="gallery__movies">
+    <div class="gallery__header">
+      <h3>Movies Gallery</h3>
+    </div>
+
+    <div class="gallery__action">
+      <div class="gallery__action-filter">
+        <mat-form-field>
+          <mat-label>Select genre</mat-label>
+          <mat-select [formControl]="selectGenre" multiple>
+            <mat-option (click)="actionSelect()"
+                        *ngFor="let genre of searchListGenres"
+                        [value]="genre">
+              {{ genre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="gallery__action-view">
+        <div class="gallery__action-text">view as:</div>
+        <span class="material-icons"
+              [ngClass]="view === 'column' ? 'active' : ''"
+              (click)="changeView('column')">
+          apps
+        </span>
+        <span class="material-icons"
+              [ngClass]="view === 'list' ? 'active' : ''"
+              (click)="changeView('list')">
+          view_list
+        </span>
+      </div>
+    </div>
+
+    <div *ngIf="view === 'column'">
+      <div class="column__movies-info column-view"
+           *ngFor="let movies of moviesListTwo; let i = index">
+        <div class="star"
+             (click)="addFavoriteList(movies.id, movies.name)">
+          <span class="material-icons"
+                [ngClass]="favoriteList[i] === movies.name ? 'favorite' : ''">
+            grade</span>
+        </div>
+        <div class="column__movies-gallery" (click)="openPopup(movies.id)">
+          <img class="column__movies-img" src="{{ movies.img }}" alt="{{ movies.name }}">
+          <div class="column__movies-name">{{ movies.name }}</div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="view === 'list'">
+      <div class="list__movies list-view"
+           *ngFor="let movies of moviesListTwo; let i = index">
+        <div class="star"
+             (click)="addFavoriteList(movies.id, movies.name)">
+          <span class="material-icons"
+                [ngClass]="favoriteList[i] === movies.name ? 'favorite' : ''">
+            grade</span>
+        </div>
+        <div class="list__movies-gallery" (click)="openPopup(movies.id)">
+          <img class="list__movies-img" src="{{ movies.img }}" alt="{{ movies.name }}">
+          <div class="list__movies-info">
+            <div class="list__movies-name">{{ movies.name }} - {{ movies.year }}</div>
+            <div class="list__movies-description"> <b>Description: </b> {{ movies.description  }}</div>
+            <div class="list__movies-genres">
+              <div class="list-genres" *ngFor="let genre of movies.genres">
+                {{ genre }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery__favorite">
+    <div class="user__info">
+      <p><b>User name: </b>{{ userName }}</p>
+      <p><b>User email: </b>{{ userEmail }}</p>
+      <button class="button secondary-button" (click)="logout()">logout</button>
+    </div>
+    <app-favorite-list (changeDelete)="removeFavoriteStar()"
+      [moviesData]="moviesListTwo"
+      [favoriteList]="favoriteList">
+    </app-favorite-list>
+  </div>
+</section>
+
+<app-popup class="app-popup"
+           [@clickOnPopup]
+           *ngFor="let movies of moviesPopupsData; let i = index"
+           (changeClose)="closePopup(moviesPopupsData, i)">
+  <div class="details" *ngFor="let item of movies.data">
+    <div class="details__header">
+      <div class="details__header-image">
+        <img src="{{item.img}}" alt="{{item.name}}">
+      </div>
+      <div class="details__header-name">
+        <h1>{{ item.name }}</h1>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+    <div class="details__footer">
+      <div class="details__footer-year">
+        <div>{{item.year}}</div>
+        <div class="list__genres">
+          <div class="list__genres-item" *ngFor="let genre of item.genres">
+            {{ genre }}
+          </div>
+        </div>
+      </div>
+      <div class="details__footer-director">
+        <p><b>Director: </b> {{item.director}}</p>
+        <div class="list-starring">
+          <b>Starring: </b> {{ item.starring }}
+        </div>
+      </div>
+    </div>
+  </div>
+</app-popup>

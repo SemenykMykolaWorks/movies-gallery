@@ -1,0 +1,40 @@
+<section class="auth-page">
+  <form class="auth-page__form"
+        (ngSubmit)="login()"
+        [formGroup]="loginForm">
+    <div class="form__control">
+      <input type="email"
+             #email
+             required
+             class="form-control__text"
+             formControlName="email"
+             placeholder="Email" />
+      <p class="form-control__error">
+        <ng-container *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').dirty">
+          <div>Email is required</div>
+        </ng-container>
+        <ng-container *ngIf="!loginForm.get('email').hasError('required') && loginForm.get('email').hasError('pattern')">
+          <div>Email is not valid</div>
+        </ng-container>
+      </p>
+    </div>
+    <div class="form__control">
+      <input type="password"
+             class="form-control__text"
+             formControlName="password"
+             placeholder="Password" />
+      <p class="form-control__error">
+        <ng-container *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').dirty">
+          <div>Password is required</div>
+        </ng-container>
+      </p>
+    </div>
+    <button type="submit"
+            [disabled]="loginForm.disabled || loginForm.invalid"
+            class="button primary-button">Login</button>
+    <div class="button secondary-button register"
+         (click)="registry()">
+      Register
+    </div>
+  </form>
+</section>

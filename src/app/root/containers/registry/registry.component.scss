@@ -1,0 +1,26 @@
+@import '../../../../styles/constants';
+
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: $dark-gray67;
+  background-size: cover;
+  .auth-page__form {
+    box-sizing: border-box;
+    padding: 50px 57px 50px;
+    width: 420px;
+    min-height: 450px;
+    background-color: $almost-white;
+    .register {
+      margin-top: 20px;
+      width: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $white;
+    }
+  }
+}

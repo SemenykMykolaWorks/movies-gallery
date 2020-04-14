@@ -1,0 +1,39 @@
+@import '../../../../styles/constants';
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  width: auto;
+  height: auto;
+  z-index: 3;
+  text-align: center;
+  border: 1px solid $dark-gray67;
+  .popup__header {
+    position: relative;
+    padding: 25px 20px;
+    font-size: 24px;
+    color: $orange;
+    text-align: center;
+    .button {
+      padding: 0;
+    }
+    .close-button {
+      position: absolute;
+      right: 3%;
+      top: 5%;
+      width: auto;
+      background-color: transparent;
+      color: $orange;
+      opacity: 0.7;
+      .close-icon {
+        font-size: 40px;
+        font-weight: 700;
+      }
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+    }
+  }
+}

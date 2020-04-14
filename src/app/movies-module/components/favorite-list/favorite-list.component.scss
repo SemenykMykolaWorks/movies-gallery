@@ -1,0 +1,25 @@
+@import '../../../../styles/constants';
+
+.favorite {
+  .favorite__title {
+    text-align: center;
+  }
+  .favorite__list {
+    display: flex;
+    width: auto;
+    max-width: 300px;
+    margin: 0 auto;
+    .favorite__list-arrow {
+      padding: 0 5px 2px 0;
+    }
+    .favorite__list-info {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding-top: 3px;
+      .favorite__list-close {
+        cursor: pointer;
+      }
+    }
+  }
+}

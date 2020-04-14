@@ -1,0 +1,20 @@
+<div class="favorite">
+  <div class="favorite__title">
+    <h2>Favorite List</h2>
+  </div>
+  <div class="favorite__list" *ngFor="let item of favoriteData">
+    <div class="favorite__list-arrow">
+      <span class="material-icons">
+        arrow_right_alt
+      </span>
+    </div>
+    <div class="favorite__list-info">
+      <div class="favorite__list-name">{{ item }}</div>
+      <div (click)="deleteList(item)" class="favorite__list-close">
+        <span class="material-icons">
+          clear
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

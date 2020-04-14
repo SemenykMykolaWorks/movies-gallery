@@ -1,0 +1,18 @@
+<section class="popup"
+         #rootElement
+         cdkDrag
+         tabindex="-1">
+  <header class="popup__header">
+    <button class="button close-button"
+            (click)="onCloseClick($event)">
+      <i tabindex="0"
+         #invisibleFocus></i>
+      <span class="material-icons close-icon">
+        close
+      </span>
+    </button>
+  </header>
+  <div class="popup__body">
+    <ng-content></ng-content>
+  </div>
+</section>

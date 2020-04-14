@@ -1,0 +1,209 @@
+@import '../../../../styles/constants';
+
+.gallery {
+  display: flex;
+  .gallery__movies {
+    width: 70%;
+    cursor: pointer;
+    .gallery__header {
+      text-align: center;
+    }
+    .gallery__action {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 50px;
+      .gallery__action-view {
+        display: flex;
+        .gallery__action-text {
+          padding-right: 15px;
+        }
+        .material-icons:hover {
+          color: $dark-gray50;
+        }
+        .active {
+          border: 1px solid $black;
+          height: fit-content;
+        }
+      }
+    }
+    .column-view {
+      width: 33.333333%;
+    }
+    @media only screen and (max-width: 700px) {
+      .column__movies-info {
+        width: 49.99999%;
+        margin: 6px 0;
+      }
+    }
+    @media only screen and (max-width: 500px) {
+      .column__movies-info {
+        width: 100%;
+      }
+    }
+    .column__movies-info {
+      padding: 0 6px;
+      margin: 10px 0;
+      float: left;
+      height: 400px;
+      position: relative;
+      .column__movies-gallery {
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        height: 400px;
+        padding: 20px 20px 0 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .column__movies-img {
+          width: 100%;
+          max-height: 350px;
+          height: auto;
+          border-radius: 5px;
+        }
+        .column__movies-name {
+          text-align: center;
+          font-size: 16px;
+        }
+      }
+      @media only screen and (max-width: 950px) {
+        .column__movies-gallery {
+          height: 320px;
+        }
+      }
+      .column__movies-gallery:hover {
+        border: 1px solid #777;
+      }
+    }
+
+    .list__movies {
+      margin: 10px 0;
+      position: relative;
+      .list__movies-gallery {
+        display: flex;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        height: 250px;
+        padding: 0 20px 0 20px;
+        align-items: center;
+        .list__movies-img {
+          max-height: 200px;
+          height: auto;
+          border-radius: 5px;
+        }
+        .list__movies-info {
+          margin-left: 30px;
+          .list__movies-name {
+            font-size: 16px;
+            font-weight: 700;
+          }
+          .list__movies-description {
+            margin: 20px 0;
+          }
+          .list__movies-genres {
+            display: flex;
+            .list-genres {
+              text-align: center;
+              border: 1px solid #ccc;
+              width: 100px;
+              border-radius: 5px;
+              padding: 10px 20px;
+              margin: 0 10px;
+            }
+          }
+        }
+      }
+      .list__movies-gallery:hover {
+        border: 1px solid #777;
+      }
+    }
+  }
+  .gallery__favorite {
+    width: 30%;
+    margin-top: 15px;
+    .user__info {
+      margin-bottom: 15px;
+      p {
+        padding: 0;
+        margin: 0;
+      }
+      .button {
+        padding: 10px 40px;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+}
+
+.star {
+  position: absolute;
+  right: 2%;
+  .material-icons {
+    font-size: 40px;
+    color: #dce2e9;
+  }
+  .favorite {
+    color: #4c4743;
+  }
+}
+
+.app-popup {
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  .details {
+    display: flex;
+    flex-direction: column;
+    .details__header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .details__header-image {
+        padding: 0 20px;
+        img {
+          width: 100%;
+          max-height: 350px;
+          height: auto;
+        }
+      }
+      .details__header-name {
+        display: flex;
+        flex-direction: column;
+        padding-right: 20px;
+      }
+    }
+    .details__footer {
+      display: flex;
+      padding: 0 20px;
+      .details__footer-year {
+        padding: 5px 20px 5px 0;
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .list__genres {
+          overflow: hidden;
+          .list__genres-item {
+            float: left;
+            text-align: center;
+            border: 1px solid #ccc;
+            width: 70px;
+            border-radius: 5px;
+            padding: 5px 5px;
+            margin: 5px 5px;
+          }
+        }
+      }
+      .details__footer-director {
+        padding: 5px 20px 5px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
+    }
+  }
+}

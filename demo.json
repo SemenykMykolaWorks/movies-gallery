@@ -1,0 +1,27 @@
+{
+  "/movies/login": {
+    "target": "http://my-json-server.typicode.com/moviedb-tech",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/movies/register": {
+    "target": "http://my-json-server.typicode.com/moviedb-tech",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/movies/logout": {
+    "target": "http://my-json-server.typicode.com/moviedb-tech",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/movies/user": {
+    "target": "http://my-json-server.typicode.com/moviedb-tech",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/movies/list": {
+    "target": "http://my-json-server.typicode.com/moviedb-tech",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

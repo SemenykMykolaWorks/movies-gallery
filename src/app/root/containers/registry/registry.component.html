@@ -1,0 +1,52 @@
+<section class="auth-page">
+  <form class="auth-page__form"
+        (ngSubmit)="register()"
+        [formGroup]="registerForm">
+    <div class="form__control">
+      <input type="email"
+             #email
+             required
+             class="form-control__text"
+             formControlName="email"
+             placeholder="Email" />
+      <p class="form-control__error">
+        <ng-container *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').dirty">
+          <div>Email is required</div>
+        </ng-container>
+        <ng-container *ngIf="!registerForm.get('email').hasError('required') && registerForm.get('email').hasError('pattern')">
+          <div>Email is not valid</div>
+        </ng-container>
+      </p>
+    </div>
+    <div class="form__control">
+      <input type="password"
+             class="form-control__text"
+             formControlName="password"
+             placeholder="Password" />
+      <p class="form-control__error">
+        <ng-container *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').dirty">
+          <div>Password is required</div>
+        </ng-container>
+      </p>
+    </div>
+    <div class="form__control">
+      <input type="text"
+             class="form-control__text"
+             formControlName="userName"
+             placeholder="User name" />
+      <p class="form-control__error">
+        <ng-container *ngIf="registerForm.get('userName').hasError('required') && registerForm.get('userName').dirty">
+          <div>User name is required</div>
+        </ng-container>
+      </p>
+    </div>
+    <button type="submit"
+            [disabled]="registerForm.disabled || registerForm.invalid"
+            class="button primary-button">Register</button>
+    <div class="button secondary-button register"
+         (click)="login()">
+      Login
+    </div>
+  </form>
+</section>
+
